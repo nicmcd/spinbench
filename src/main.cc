@@ -36,9 +36,9 @@
 
 #include <algorithm>
 #include <atomic>
-#include <chrono>
-#include <ratio>
-#include <thread>
+#include <chrono>  // NOLINT
+#include <ratio>  // NOLINT
+#include <thread>  // NOLINT
 #include <vector>
 
 bool doLock = true;
