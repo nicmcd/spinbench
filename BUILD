@@ -10,6 +10,7 @@ COPTS = []
 LIBS = [
     "@libprim//:prim",
     "@libdes//:des",
+    "@tclap//:tclap",
 ]
 
 cc_library(
@@ -100,6 +101,25 @@ genrule(
   """,
     tools = [
         "@cpplint",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "format_check",
+    srcs = glob([
+        "src/**/*.cc",
+        "src/**/*.h",
+        "src/**/*.tcc",
+    ]),
+    outs = ["format_checked"],
+    cmd = """
+    cp $(location @clang_format//file) .clang-format
+    clang-format --style=file --dry-run --Werror $(SRCS)
+    echo // $$(date) > $@
+    """,
+    tools = [
+        "@clang_format//file",
     ],
     visibility = ["//visibility:public"],
 )
