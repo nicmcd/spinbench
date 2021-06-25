@@ -4,6 +4,8 @@ project(spinbench)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+include(FindPkgConfig)
+
 # numactl
 find_library(NUMACTL_A NAMES libnuma.a PATHS ${CMAKE_INSTALL_RPATH})
 if(NUMACTL_A MATCHES "NOTFOUND")
@@ -25,11 +27,11 @@ if(NOT EXISTS ${ZLIB_INC})
 endif()
 
 # tclap
-find_package(tclap REQUIRED)
-get_target_property(
+pkg_search_module(TCLAP REQUIRED tclap)
+pkg_get_variable(
   TCLAP_INC
-  tclap::tclap
-  INTERFACE_INCLUDE_DIRECTORIES
+  tclap
+  includedir
 )
 
 # libprim
