@@ -72,7 +72,7 @@ http_archive(
   build_file = "@tclap_build//file:downloaded",
 )
 
-hash = "ef2951d"
+hash = "f564c5c"
 http_archive(
   name = "libprim",
   urls = ["https://github.com/nicmcd/libprim/tarball/" + hash],
@@ -80,7 +80,7 @@ http_archive(
   strip_prefix = "nicmcd-libprim-" + hash,
 )
 
-hash = "868faad"
+hash = "9820e0f"
 http_archive(
   name = "librnd",
   urls = ["https://github.com/nicmcd/librnd/tarball/" + hash],
@@ -88,7 +88,7 @@ http_archive(
   strip_prefix = "nicmcd-librnd-" + hash,
 )
 
-hash = "71925a6"
+hash = "34d3c07"
 http_archive(
   name = "libdes",
   urls = ["https://github.com/nicmcd/libdes/tarball/" + hash],
